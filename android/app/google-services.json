@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "876083870170",
+    "project_id": "gestordetareas-6317a",
+    "storage_bucket": "gestordetareas-6317a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876083870170:android:6311991256790ba280e8e3",
+        "android_client_info": {
+          "package_name": "com.example.gestion_tareas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUchcvCBxr1iovICiqpgpcdyHsGJw3ANU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
