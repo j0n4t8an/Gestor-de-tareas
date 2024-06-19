@@ -3,17 +3,45 @@ import 'package:flutter/material.dart';
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    String username = 'juan';
+    String name = 'jhon lenon';
+    String phone = '0987654321';
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Datos Personale'),
+      ),
+      body: Stack(
         children: [
-          Text('User Profile', style: TextStyle(fontSize: 24)),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/login');
-            },
-            child: Text('Logout'),
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/fondo.jpeg'), // Ruta de tu imagen de fondo
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Username: $username',
+                  style: TextStyle(fontSize: 18),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Name: $name',
+                  style: TextStyle(fontSize: 18),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Phone: $phone',
+                  style: TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
           ),
         ],
       ),

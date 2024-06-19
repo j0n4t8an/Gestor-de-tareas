@@ -37,41 +37,53 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Task'),
+        title: Text('Editar tarea'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _taskController,
-              decoration: InputDecoration(
-                labelText: 'Task Name',
-                border: OutlineInputBorder(),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/fondo.jpeg'), // Reemplaza con tu imagen de fondo
+                fit: BoxFit.cover,
               ),
             ),
-            SizedBox(height: 10),
-            TextField(
-              controller: _dueDateController,
-              decoration: InputDecoration(
-                labelText: 'Due Date (YYYY-MM-DD)',
-                border: OutlineInputBorder(),
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _taskController,
+                  decoration: InputDecoration(
+                    labelText: 'Nombre',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  controller: _dueDateController,
+                  decoration: InputDecoration(
+                    labelText: 'Fecha (YYYY-MM-DD)',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: () {
+                    final name = _taskController.text;
+                    final dueDate = _dueDateController.text;
+                    if (name.isNotEmpty && dueDate.isNotEmpty) {
+                      taskProvider.updateTask(widget.taskIndex, name, dueDate);
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: Text('Cargar cambios'),
+                ),
+              ],
             ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                final name = _taskController.text;
-                final dueDate = _dueDateController.text;
-                if (name.isNotEmpty && dueDate.isNotEmpty) {
-                  taskProvider.updateTask(widget.taskIndex, name, dueDate);
-                  Navigator.pop(context);
-                }
-              },
-              child: Text('Save Changes'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

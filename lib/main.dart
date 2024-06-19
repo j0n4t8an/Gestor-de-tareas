@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'task_provider.dart';
 import 'login_screen.dart';
 import 'home_screen.dart';
+import 'profile_screen.dart';
 import 'register_screen.dart';
-import 'task_provider.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+void main() {
   runApp(MyApp());
 }
 
@@ -45,9 +40,11 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: LoginScreen(),
+        initialRoute: '/login',
         routes: {
+          '/login': (context) => LoginScreen(),
           '/home': (context) => HomeScreen(),
+          '/profile': (context) => ProfileScreen(),
           '/register': (context) => RegisterScreen(),
         },
       ),

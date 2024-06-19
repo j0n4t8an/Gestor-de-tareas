@@ -11,7 +11,7 @@ class TaskProvider extends ChangeNotifier {
 
   void setUser(String username) {
     _username = username;
-    _tasks = []; // Reset tasks for the new user
+    _tasks = []; 
     notifyListeners();
   }
 

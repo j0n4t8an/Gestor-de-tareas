@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'gestordetareas-6317a.appspot.com',
     measurementId: 'G-T1DEM9V4LB',
   );
+
 }
